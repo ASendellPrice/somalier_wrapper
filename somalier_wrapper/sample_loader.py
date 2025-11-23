@@ -10,7 +10,7 @@ and constructing Sample objects (see sample.py).
 """
 
 import pandas as pd
-from sample import Sample
+from .sample import Sample
 
 
 class SampleLoader:
