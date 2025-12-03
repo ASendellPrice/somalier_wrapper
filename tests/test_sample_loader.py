@@ -163,4 +163,25 @@ def test_sample_missing_sampleID():
 
 
 def test_valid_csv():
-    ...
+    """ Test SampleLoader using a valid csv file """
+    # Set path to test CSV relative to test file
+    csv_file = os.path.join(os.path.dirname(__file__), "data/test.csv")
+
+    # Load csv using SampleLoader
+    loader = SampleLoader(csv_file)
+
+    # Check loader contains three Samples
+    assert len(loader.samples) == 3
+
+    # Check sample IDs are as expected
+    sample_ids = [sample.sample_id for sample in loader.samples]
+    assert sample_ids == ["S1", "S2", "S3"]
+
+    # Check cram paths are as expected
+    cram_paths = [sample.cram_path for sample in loader.samples]
+    assert cram_paths == ["/data/S1.cram", "/data/S2.cram", "/data/S3.cram"]
+
+    # Check patient ids are as expected
+    patient_ids = [sample.patient_id for sample in loader.samples]
+    assert patient_ids == ["P001", "P002", None]
+

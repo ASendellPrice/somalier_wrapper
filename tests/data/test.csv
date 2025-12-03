@@ -1,0 +1,4 @@
+sample_id,cram_path,patient_id
+S1,/data/S1.cram,P001
+S2,/data/S2.cram,P002
+S3,/data/S3.cram,
