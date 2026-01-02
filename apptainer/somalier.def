@@ -1,0 +1,8 @@
+Bootstrap: docker
+From: brentp/somalier:latest
+
+%environment
+    export PATH=/usr/local/bin:$PATH
+
+%runscript
+    exec somalier "$@"

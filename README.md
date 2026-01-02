@@ -51,3 +51,16 @@ When both *--somalier_1K_directory* and *--somalier_1K_labels* flags are specifi
 
 ## Author:
 Ash Sendell-Price, Oct 2024
+
+
+
+## Build apptainer image
+apptainer build images/somalier.sif somalier_wrapper/apptainer/somalier.def
+
+## Check Somalier is installed
+apptainer exec somalier.sif somalier --help
+
+## How to run via container  
+apptainer exec --bind $PWD somalier.sif \
+somalier extract sample.bam --sites sites.vcf.gz --out-dir out
+
